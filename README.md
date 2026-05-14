@@ -10,6 +10,7 @@ Python 3.14+
 - FastAPI with async routes
 - Database: SQLAlchemy (Async) + Alembic
 - Server: Granian
+- Hashing: pwdlib
 
 ### Dev dependencies
 - Pre-commit: prek
