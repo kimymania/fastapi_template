@@ -1,0 +1,36 @@
+[project]
+name = "fastapi-template"
+version = "0.1.0"
+description = "Project builder template for FastAPI projects"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "alembic>=1.18.4",
+    "fastapi>=0.136.1",
+    "granian>=2.7.4",
+    "pydantic-settings>=2.14.1",
+    "sqlalchemy>=2.0.49",
+]
+
+
+[dependency-groups]
+dev = [
+    "prek>=0.3.13",
+    "pytest>=9.0.3",
+    "coverage>=7.13.5",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]        # Allow assert statements in tests
+"__init__.py" = ["F401"]    # Allow unused imports in __init__.py
+"migrations/*" = ["E501"]   # Allow long lines in migrations
