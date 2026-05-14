@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import DeclarativeBase
 
-from src.core.config import settings
+from core.config import settings
 
 engine = create_async_engine(settings.sqlalchemy_database_uri)
 AsyncSessionLocal = async_sessionmaker(
@@ -27,7 +27,7 @@ async def get_db() -> AsyncGenerator[AsyncSession]:
     try:
         yield db
     finally:
-        db.close()
+        await db.close()
 
 
 SessionDep = Annotated[AsyncSession, Depends(get_db)]
